@@ -1,0 +1,10 @@
+opencv-python
+numpy
+pdf2image
+EbookLib
+markdown
+pyperclip
+torch
+Pillow
+yomitoku
+onnxruntime
