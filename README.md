@@ -8,6 +8,20 @@ PDFを画像化して **Yomitoku** でOCRし、Markdown（+ページ画像）と
 
 ---
 
+## 動作環境
+- Windows 10/11 推奨
+- Python 3.10+ 推奨（3.9でも動く可能性はあります）
+- GPU利用時：CUDA対応のPyTorch環境（任意）
+
+### GPUで使う場合（任意）
+CUDA対応のPyTorchを先に用意した上で、次を実行します。
+
+~~~bash
+pip install -U "yomitoku[gpu]" onnxruntime-gpu
+~~~
+
+---
+
 ## できること（タブ構成）
 
 ### Tab1：OCR（PDF → Markdown）
@@ -33,7 +47,7 @@ PDFを画像化して **Yomitoku** でOCRし、Markdown（+ページ画像）と
 - 実行時は入力MDと同じフォルダに `split_output_safe/実行時刻/` を作って出力
 - 分割結果から **選択した項目を結合**して、狙った単位にまとめ直すことができます
 
-### （想定ワークフロー）Tab2で出力 → 生成AIで校正 → Tab3以降で続き
+### 想定ワークフロー：Tab2で出力 → 生成AIで校正 → Tab3以降で続き
 本ツール自体に「校正」タブはありません。  
 **Tab2/Tab2-2で分割したMDを外部の生成AI等で校正**し、校正後のMDを **Tab3〜Tab4** で続けて処理する想定です。
 
@@ -54,13 +68,6 @@ PDFを画像化して **Yomitoku** でOCRし、Markdown（+ページ画像）と
 
 ---
 
-## 動作環境
-- Windows 10/11 推奨
-- Python 3.10+ 推奨（3.9でも動く可能性はあります）
-- GPU利用時：CUDA対応のPyTorch環境（任意）
-
----
-
 ## 事前準備（重要）：Poppler（PDF画像化に必須）
 本ツールは `pdf2image` を使用してPDFを画像化します。Windowsでは **Poppler** が必要です。
 
@@ -76,24 +83,26 @@ Tab1の「Popplerパス」に、`pdftoppm.exe` 等が入っている `bin` フ�
 ## インストール（Python依存ライブラリ）
 
 ### 1) 仮想環境（推奨）
-
-    py -m venv .venv
-    .venv\Scripts\activate
-    python -m pip install -U pip
+~~~bash
+py -m venv .venv
+.venv\Scripts\activate
+python -m pip install -U pip
+~~~
 
 ### 2) 依存ライブラリのインストール
-
-    pip install -r requirements.txt
+~~~bash
+pip install -r requirements.txt
+~~~
 
 補足：
 - 起動時に依存ライブラリ不足を検出した場合、ダイアログで `pip install ...` の案内が出ます。
-- GPU運用をしたい場合、環境によっては `yomitoku[gpu]` / `onnxruntime-gpu` が必要です（CUDA設定が必要）。
 
 ---
 
 ## 起動方法
-
-    python app.py
+~~~bash
+python app.py
+~~~
 
 ---
 
