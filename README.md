@@ -1,6 +1,7 @@
 # Yomitoku OCR & EPUB Workflow 統合ツール v5.9（単体 .py）
 
 ＊放送大学の縦書きテキストを自炊したPDFをEPUBに変換するまでのアプリです。
+
 ＊途中、校正を生成AIに依頼しますが、それ以外の作業を担当します。
 
 PDFを画像化して **Yomitoku** でOCRし、Markdown（+ページ画像）として出力します。  
@@ -138,4 +139,5 @@ python app.py
 
 ## ライセンス
 - MIT License
+
 
